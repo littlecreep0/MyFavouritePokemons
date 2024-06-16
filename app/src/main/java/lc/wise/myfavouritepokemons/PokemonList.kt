@@ -12,6 +12,7 @@ class PokemonList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         bundle = Bundle()
         val eevee = binding.eevee
         eevee.setOnClickListener {
