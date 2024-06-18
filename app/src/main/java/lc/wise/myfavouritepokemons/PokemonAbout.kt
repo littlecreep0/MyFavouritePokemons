@@ -1,9 +1,11 @@
 package lc.wise.myfavouritepokemons
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import lc.wise.myfavouritepokemons.databinding.ActivityPokemonAboutBinding
 
@@ -13,59 +15,65 @@ class PokemonAbout : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val bundle = intent.extras
-        val name:String? = bundle?.getString("PokemonName", "pokemon")
-        val type:String? = bundle?.getString("PokemonType", "type")
-        val height:String? = bundle?.getString("PokemonHeight", "height")
-        val weight:String? = bundle?.getString("PokemonWeight", "weight")
-
         val pokemonName: TextView = binding.pokemonName
         val pokemonType: TextView = binding.pokemonType
         val pokemonHeight: TextView = binding.pokemonHeight
         val pokemonWeight: TextView = binding.pokemonWeight
-
-        if (name.equals(null)) pokemonName.text = "UNKNOWN"
-        else pokemonName.text = name + " "
-        if (type.equals(null)) pokemonType.text = "Type: unknown"
-        else pokemonType.text = "Type: " + type
-        if (height.equals(null)) pokemonHeight.text = "Height: unknown"
-        else pokemonHeight.text = "Height: " + height + " m"
-        if (weight.equals(null)) pokemonWeight.text = "Weight: unknown"
-        else pokemonWeight.text = "Weight: " + weight + " kg"
-
         val pokemonPicture: ImageView = binding.pokemonPicture
+
+        val name: String = intent.extras?.getString("PokemonName") ?: "MissingNo"
+        val type: String = intent.extras?.getString("PokemonType") ?: "???"
+        val height: String = intent.extras?.getString("PokemonHeight") ?: "???"
+        val weight: String = intent.extras?.getString("PokemonWeight") ?: "???"
+        // im not willing to throw an exception
+        // ill throw them another pokemon to catch instead
+
+        pokemonName.text = "$name"
+        pokemonType.text = "Type: $type"
+        pokemonHeight.text = "Height: $height m"
+        pokemonWeight.text = "Weight: $weight kg"
+
         when(name){
             "Eevee" -> {
                 pokemonPicture.setImageResource(R.drawable.eevee)
+                pokemonType.setTextColor(resources.getColor(R.color.normal))
             }
             "Vaporeon" -> {
                 pokemonPicture.setImageResource(R.drawable.vaporeon)
+                pokemonType.setTextColor(resources.getColor(R.color.water))
             }
             "Jolteon" -> {
                 pokemonPicture.setImageResource(R.drawable.jolteon)
+                pokemonType.setTextColor(resources.getColor(R.color.electric))
             }
             "Flareon" -> {
                 pokemonPicture.setImageResource(R.drawable.flareon)
+                pokemonType.setTextColor(resources.getColor(R.color.fire))
             }
             "Espeon" -> {
                 pokemonPicture.setImageResource(R.drawable.espeon)
+                pokemonType.setTextColor(resources.getColor(R.color.psychic))
             }
             "Umbreon" -> {
                 pokemonPicture.setImageResource(R.drawable.umbreon)
+                pokemonType.setTextColor(resources.getColor(R.color.dark))
             }
             "Leafeon" -> {
                 pokemonPicture.setImageResource(R.drawable.leafeon)
+                pokemonType.setTextColor(resources.getColor(R.color.grass))
             }
             "Glaceon" -> {
                 pokemonPicture.setImageResource(R.drawable.glaceon)
+                pokemonType.setTextColor(resources.getColor(R.color.ice))
             }
             "Sylveon" -> {
                 pokemonPicture.setImageResource(R.drawable.sylveon)
+                pokemonType.setTextColor(resources.getColor(R.color.fairy))
             }
             else -> {
-                pokemonPicture.setBackgroundResource(R.drawable.ic_launcher_background)
-                pokemonPicture.setImageResource(R.drawable.ic_launcher_foreground)
+                Toast.makeText(this@PokemonAbout, "A wild MISSINGNO appeared!",
+                    Toast.LENGTH_SHORT).show()
+                pokemonPicture.setImageResource(R.drawable.missingno)
             }
         }
 

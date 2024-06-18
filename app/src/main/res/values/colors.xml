@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="normal">#FF9FA19F</color>
+    <color name="water">#FF2980EF</color>
+    <color name="electric">#FFFAC000</color>
+    <color name="fire">#FFE62829</color>
+    <color name="psychic">#FFEF4179</color>
+    <color name="dark">#FF624D4E</color>
+    <color name="grass">#FF3FA129</color>
+    <color name="ice">#FF3DCEF3</color>
+    <color name="fairy">#FFEF70EF</color>
 </resources>

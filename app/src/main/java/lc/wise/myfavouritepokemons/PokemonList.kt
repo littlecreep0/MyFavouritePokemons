@@ -7,89 +7,99 @@ import lc.wise.myfavouritepokemons.databinding.ActivityPokemonListBinding
 
 class PokemonList : AppCompatActivity() {
     private lateinit var binding: ActivityPokemonListBinding
-    private lateinit var bundle: Bundle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        bundle = Bundle()
         val eevee = binding.eevee
         eevee.setOnClickListener {
-            bundle.putString("PokemonName", "Eevee")
-            bundle.putString("PokemonType", "Normal")
-            bundle.putString("PokemonHeight", "0.3")
-            bundle.putString("PokemonWeight", "6.5")
-            showPokemonInfo()
+            showPokemonInfo("Eevee", "Normal", "0.3", "6.5")
         }
+        val eeveeIcon = binding.eeveeIcon
+        eeveeIcon.setOnClickListener {
+            showPokemonInfo("Eevee", "Normal", "0.3", "6.5")
+        }
+
         val vaporeon = binding.vaporeon
         vaporeon.setOnClickListener {
-            bundle.putString("PokemonName", "Vaporeon")
-            bundle.putString("PokemonType", "Water")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "29")
-            showPokemonInfo()
+            showPokemonInfo("Vaporeon", "Water", "1", "29.0")
         }
+        val vaporeonIcon = binding.vaporeonIcon
+        vaporeonIcon.setOnClickListener {
+            showPokemonInfo("Vaporeon", "Water", "1", "29.0")
+        }
+
         val jolteon = binding.jolteon
         jolteon.setOnClickListener {
-            bundle.putString("PokemonName", "Jolteon")
-            bundle.putString("PokemonType", "Electric")
-            bundle.putString("PokemonHeight", "0.8")
-            bundle.putString("PokemonWeight", "24.5")
-            showPokemonInfo()
+            showPokemonInfo("Jolteon", "Electric", "0.8", "24.5")
         }
+        val jolteonIcon = binding.jolteonIcon
+        jolteonIcon.setOnClickListener {
+            showPokemonInfo("Jolteon", "Electric", "0.8", "24.5")
+        }
+
         val flareon = binding.flareon
         flareon.setOnClickListener {
-            bundle.putString("PokemonName", "Flareon")
-            bundle.putString("PokemonType", "Fire")
-            bundle.putString("PokemonHeight", "0.9")
-            bundle.putString("PokemonWeight", "25")
-            showPokemonInfo()
+            showPokemonInfo("Flareon", "Fire", "0.9", "25.0")
         }
+        val flareonIcon = binding.flareonIcon
+        flareonIcon.setOnClickListener {
+            showPokemonInfo("Flareon", "Fire", "0.9", "25.0")
+        }
+
         val espeon = binding.espeon
         espeon.setOnClickListener {
-            bundle.putString("PokemonName", "Espeon")
-            bundle.putString("PokemonType", "Psychic")
-            bundle.putString("PokemonHeight", "0.9")
-            bundle.putString("PokemonWeight", "26.5")
-            showPokemonInfo()
+            showPokemonInfo("Espeon", "Psychic", "0.9", "26.5")
         }
+        val espeonIcon = binding.espeonIcon
+        espeonIcon.setOnClickListener {
+            showPokemonInfo("Espeon", "Psychic", "0.9", "26.5")
+        }
+
         val umbreon = binding.umbreon
         umbreon.setOnClickListener {
-            bundle.putString("PokemonName", "Umbreon")
-            bundle.putString("PokemonType", "Dark")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "27")
-            showPokemonInfo()
+            showPokemonInfo("Umbreon", "Dark", "1", "27.0")
         }
+        val umbreonIcon = binding.umbreonIcon
+        umbreonIcon.setOnClickListener {
+            showPokemonInfo("Umbreon", "Dark", "1", "27.0")
+        }
+
         val leafeon = binding.leafeon
         leafeon.setOnClickListener {
-            bundle.putString("PokemonName", "Leafeon")
-            bundle.putString("PokemonType", "Grass")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "25.5")
-            showPokemonInfo()
+            showPokemonInfo("Leafeon", "Grass", "1", "25.5")
         }
+        val leafeonIcon = binding.leafeonIcon
+        leafeonIcon.setOnClickListener {
+            showPokemonInfo("Leafeon", "Grass", "1", "25.5")
+        }
+
         val glaceon = binding.glaceon
         glaceon.setOnClickListener {
-            bundle.putString("PokemonName", "Glaceon")
-            bundle.putString("PokemonType", "Ice")
-            bundle.putString("PokemonHeight", "0.8")
-            bundle.putString("PokemonWeight", "25.9")
-            showPokemonInfo()
+            showPokemonInfo("Glaceon", "Ice", "0.8", "25.9")
         }
+        val glaceonIcon = binding.glaceonIcon
+        glaceonIcon.setOnClickListener {
+            showPokemonInfo("Glaceon", "Ice", "0.8", "25.9")
+        }
+
         val sylveon = binding.sylveon
         sylveon.setOnClickListener {
-            bundle.putString("PokemonName", "Sylveon")
-            bundle.putString("PokemonType", "Fairy")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "23.5")
-            showPokemonInfo()
+            showPokemonInfo("Sylveon", "Fairy", "1", "23.5")
+        }
+        val sylveonIcon = binding.sylveonIcon
+        sylveonIcon.setOnClickListener {
+            showPokemonInfo("Sylveon", "Fairy", "1", "23.5")
         }
     }
-    private fun showPokemonInfo(){
-        val showPokemonInfo = Intent(this, PokemonAbout::class.java)
-        showPokemonInfo.putExtras(bundle)
+    private fun showPokemonInfo(name: String, type: String, height: String, weight: String){
+        val showPokemonInfo = Intent(this, PokemonAbout::class.java).apply {
+            putExtra("PokemonName", name)
+            putExtra("PokemonType", type)
+            putExtra("PokemonHeight", height)
+            putExtra("PokemonWeight", weight)
+        }
         startActivity(showPokemonInfo)
     }
 }
