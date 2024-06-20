@@ -2,6 +2,8 @@ package lc.wise.myfavouritepokemons
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
@@ -13,90 +15,36 @@ class PokemonList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        textViewInit()
-        imageViewInit()
-    }
-
-    private fun textViewInit(){
         with(binding){
-            eevee.setOnClickListener {
-                showPokemonInfo("Eevee", "Normal", R.color.normal,
-                    "0.3", "6.5", R.drawable.eevee)
-            }
-            vaporeon.setOnClickListener {
-                showPokemonInfo("Vaporeon", "Water", R.color.water,
-                    "1", "29.0", R.drawable.vaporeon)
-            }
-            jolteon.setOnClickListener {
-                showPokemonInfo("Jolteon", "Electric", R.color.electric,
-                    "0.8", "24.5", R.drawable.jolteon)
-            }
-            flareon.setOnClickListener {
-                showPokemonInfo("Flareon", "Fire", R.color.fire,
-                    "0.9", "25.0", R.drawable.flareon)
-            }
-            espeon.setOnClickListener {
-                showPokemonInfo("Espeon", "Psychic", R.color.psychic,
-                    "0.9", "26.5", R.drawable.espeon)
-            }
-            umbreon.setOnClickListener {
-                showPokemonInfo("Umbreon", "Dark", R.color.dark,
-                    "1", "27.0", R.drawable.umbreon)
-            }
-            leafeon.setOnClickListener {
-                showPokemonInfo("Leafeon", "Grass", R.color.grass,
-                    "1", "25.5", R.drawable.leafeon)
-            }
-            glaceon.setOnClickListener {
-                showPokemonInfo("Glaceon", "Ice", R.color.ice,
-                    "0.8", "25.9", R.drawable.glaceon)
-            }
-            sylveon.setOnClickListener {
-                showPokemonInfo("Sylveon", "Fairy", R.color.fairy,
-                    "1", "23.5", R.drawable.sylveon)
-            }
+            setPokemonInfo(eevee, eeveeImage,"Eevee", "Normal",
+                R.color.normal, "0.3", "6.5", R.drawable.eevee)
+            setPokemonInfo(vaporeon, vaporeonImage, "Vaporeon", "Water",
+                R.color.water, "1", "29.0", R.drawable.vaporeon)
+            setPokemonInfo(jolteon, jolteonImage, "Jolteon", "Electric",
+                R.color.electric, "0.8", "24.5", R.drawable.jolteon)
+            setPokemonInfo(flareon, flareonImage, "Flareon", "Fire",
+                R.color.fire, "0.9", "25.0", R.drawable.flareon)
+            setPokemonInfo(espeon, espeonImage, "Espeon", "Psychic",
+                R.color.psychic, "0.9", "26.5", R.drawable.espeon)
+            setPokemonInfo(umbreon, umbreonImage, "Umbreon", "Dark",
+                R.color.dark, "1", "27.0", R.drawable.umbreon)
+            setPokemonInfo(leafeon, leafeonImage, "Leafeon", "Grass",
+                R.color.grass, "1", "25.5", R.drawable.leafeon)
+            setPokemonInfo(glaceon, glaceonImage, "Glaceon", "Ice",
+                R.color.ice, "0.8", "25.9", R.drawable.glaceon)
+            setPokemonInfo(sylveon, sylveonImage, "Sylveon", "Fairy",
+                R.color.fairy, "1", "23.5", R.drawable.sylveon)
         }
     }
 
-    private fun imageViewInit(){
-        with(binding){
-            eeveeImage.setOnClickListener {
-                showPokemonInfo("Eevee", "Normal", R.color.normal,
-                    "0.3", "6.5", R.drawable.eevee)
-            }
-            vaporeonImage.setOnClickListener {
-                showPokemonInfo("Vaporeon", "Water", R.color.water,
-                    "1", "29.0", R.drawable.vaporeon)
-            }
-            jolteonImage.setOnClickListener {
-                showPokemonInfo("Jolteon", "Electric", R.color.electric,
-                    "0.8", "24.5", R.drawable.jolteon)
-            }
-            flareonImage.setOnClickListener {
-                showPokemonInfo("Flareon", "Fire", R.color.fire,
-                    "0.9", "25.0", R.drawable.flareon)
-            }
-            espeonImage.setOnClickListener {
-                showPokemonInfo("Espeon", "Psychic", R.color.psychic,
-                    "0.9", "26.5", R.drawable.espeon)
-            }
-            umbreonImage.setOnClickListener {
-                showPokemonInfo("Umbreon", "Dark", R.color.dark,
-                    "1", "27.0", R.drawable.umbreon)
-            }
-            leafeonImage.setOnClickListener {
-                showPokemonInfo("Leafeon", "Grass", R.color.grass,
-                    "1", "25.5", R.drawable.leafeon)
-            }
-            glaceonImage.setOnClickListener {
-                showPokemonInfo("Glaceon", "Ice", R.color.ice,
-                    "0.8", "25.9", R.drawable.glaceon)
-            }
-            sylveonImage.setOnClickListener {
-                showPokemonInfo("Sylveon", "Fairy", R.color.fairy,
-                    "1", "23.5", R.drawable.sylveon)
-            }
+    private fun setPokemonInfo(textView: TextView, imageView: ImageView, name: String,
+                               type: String, @ColorRes typeColor: Int,
+                               height: String, weight: String, @DrawableRes image: Int){
+        textView.setOnClickListener {
+            showPokemonInfo(name, type, typeColor, height, weight, image)
+        }
+        imageView.setOnClickListener {
+            showPokemonInfo(name, type, typeColor, height, weight, image)
         }
     }
 
