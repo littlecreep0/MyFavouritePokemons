@@ -1,9 +1,8 @@
 package lc.wise.myfavouritepokemons
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import lc.wise.myfavouritepokemons.databinding.ActivityPokemonAboutBinding
 
@@ -14,64 +13,25 @@ class PokemonAbout : AppCompatActivity() {
         binding = ActivityPokemonAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bundle = intent.extras
-        val name:String? = bundle?.getString("PokemonName", "pokemon")
-        val type:String? = bundle?.getString("PokemonType", "type")
-        val height:String? = bundle?.getString("PokemonHeight", "height")
-        val weight:String? = bundle?.getString("PokemonWeight", "weight")
+        val name: String = intent.extras?.getString("PokemonName") ?: "MissingNo"
+        val type: String = intent.extras?.getString("PokemonType") ?: "???"
+        @ColorRes val typeColor: Int  = intent.extras?.getInt("PokemonTypeColor") ?: R.color.normal
+        val height: String = intent.extras?.getString("PokemonHeight") ?: "???"
+        val weight: String = intent.extras?.getString("PokemonWeight") ?: "???"
+        @DrawableRes val image: Int = intent.extras?.getInt("PokemonImage") ?: R.drawable.missingno
+        // im not willing to throw an exception
+        // ill throw them another pokemon to catch instead
 
-        val pokemonName: TextView = binding.pokemonName
-        val pokemonType: TextView = binding.pokemonType
-        val pokemonHeight: TextView = binding.pokemonHeight
-        val pokemonWeight: TextView = binding.pokemonWeight
-
-        if (name.equals(null)) pokemonName.text = "UNKNOWN"
-        else pokemonName.text = name + " "
-        if (type.equals(null)) pokemonType.text = "Type: unknown"
-        else pokemonType.text = "Type: " + type
-        if (height.equals(null)) pokemonHeight.text = "Height: unknown"
-        else pokemonHeight.text = "Height: " + height + " m"
-        if (weight.equals(null)) pokemonWeight.text = "Weight: unknown"
-        else pokemonWeight.text = "Weight: " + weight + " kg"
-
-        val pokemonPicture: ImageView = binding.pokemonPicture
-        when(name){
-            "Eevee" -> {
-                pokemonPicture.setImageResource(R.drawable.eevee)
+        with(binding){
+            pokemonName.text = "$name"
+            pokemonType.text = "Type: $type"
+            pokemonType.setTextColor(resources.getColor(typeColor))
+            pokemonHeight.text = "Height: $height m"
+            pokemonWeight.text = "Weight: $weight kg"
+            pokemonImage.setImageResource(image)
+            back.setOnClickListener {
+                finish()
             }
-            "Vaporeon" -> {
-                pokemonPicture.setImageResource(R.drawable.vaporeon)
-            }
-            "Jolteon" -> {
-                pokemonPicture.setImageResource(R.drawable.jolteon)
-            }
-            "Flareon" -> {
-                pokemonPicture.setImageResource(R.drawable.flareon)
-            }
-            "Espeon" -> {
-                pokemonPicture.setImageResource(R.drawable.espeon)
-            }
-            "Umbreon" -> {
-                pokemonPicture.setImageResource(R.drawable.umbreon)
-            }
-            "Leafeon" -> {
-                pokemonPicture.setImageResource(R.drawable.leafeon)
-            }
-            "Glaceon" -> {
-                pokemonPicture.setImageResource(R.drawable.glaceon)
-            }
-            "Sylveon" -> {
-                pokemonPicture.setImageResource(R.drawable.sylveon)
-            }
-            else -> {
-                pokemonPicture.setBackgroundResource(R.drawable.ic_launcher_background)
-                pokemonPicture.setImageResource(R.drawable.ic_launcher_foreground)
-            }
-        }
-
-        val back: Button = binding.back
-        back.setOnClickListener {
-            finish()
         }
     }
 }

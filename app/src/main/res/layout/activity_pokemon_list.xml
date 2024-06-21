@@ -5,16 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".PokemonList">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="My Favourite Pokemons:"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@id/hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +23,12 @@
 
     <TextView
         android:id="@+id/hint"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="(Click on the pokemon's name to show its info)"
+        android:text="(Click on the pokemon's name or icon to show its info)"
         android:textAlignment="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/eevee"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,120 +36,191 @@
 
     <TextView
         android:id="@+id/eevee"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="1. Eevee"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Eevee"
+        android:textAlignment="viewStart"
+        android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@id/vaporeon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/hint" />
+
+    <ImageView
+        android:id="@+id/eevee_image"
+        android:src="@drawable/eevee"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/hint"
-        />
+        app:layout_constraintBottom_toTopOf="@id/vaporeon" />
 
     <TextView
         android:id="@+id/vaporeon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="2. Vaporeon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Vaporeon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/jolteon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/eevee" />
+
+    <ImageView
+        android:id="@+id/vaporeon_image"
+        android:src="@drawable/vaporeon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/eevee"
+        app:layout_constraintBottom_toTopOf="@id/jolteon" />
 
     <TextView
         android:id="@+id/jolteon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="3. Jolteon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Jolteon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/flareon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/vaporeon" />
+
+    <ImageView
+        android:id="@+id/jolteon_image"
+        android:src="@drawable/jolteon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/vaporeon"
+        app:layout_constraintBottom_toTopOf="@id/flareon" />
 
     <TextView
         android:id="@+id/flareon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="4. Flareon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Flareon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/espeon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/jolteon" />
+
+    <ImageView
+        android:id="@+id/flareon_image"
+        android:src="@drawable/flareon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/jolteon"
+        app:layout_constraintBottom_toTopOf="@id/espeon" />
 
     <TextView
         android:id="@+id/espeon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="5. Espeon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Espeon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/umbreon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/flareon" />
+
+    <ImageView
+        android:id="@+id/espeon_image"
+        android:src="@drawable/espeon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/flareon"
+        app:layout_constraintBottom_toTopOf="@id/umbreon" />
 
     <TextView
         android:id="@+id/umbreon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="6. Umbreon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Umbreon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/leafeon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/espeon" />
+
+    <ImageView
+        android:id="@+id/umbreon_image"
+        android:src="@drawable/umbreon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/espeon"
+        app:layout_constraintBottom_toTopOf="@id/leafeon" />
 
     <TextView
         android:id="@+id/leafeon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="7. Leafeon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Leafeon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/glaceon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/umbreon" />
+
+    <ImageView
+        android:id="@+id/leafeon_image"
+        android:src="@drawable/leafeon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/umbreon"
+        app:layout_constraintBottom_toTopOf="@id/glaceon" />
 
     <TextView
         android:id="@+id/glaceon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="8. Glaceon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Glaceon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/sylveon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/leafeon" />
+
+    <ImageView
+        android:id="@+id/glaceon_image"
+        android:src="@drawable/glaceon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/leafeon"
+        app:layout_constraintBottom_toTopOf="@id/sylveon" />
 
     <TextView
         android:id="@+id/sylveon"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="9. Sylveon"
-        android:textSize="24sp"
-        android:textAlignment="center"
-        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sylveon"
+        android:textSize="32sp"
+        android:textAlignment="viewStart"
+        android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide"
         app:layout_constraintTop_toBottomOf="@id/glaceon" />
+
+    <ImageView
+        android:id="@+id/sylveon_image"
+        android:src="@drawable/sylveon"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintEnd_toStartOf="@id/guide"
+        app:layout_constraintTop_toBottomOf="@id/glaceon"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.35"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

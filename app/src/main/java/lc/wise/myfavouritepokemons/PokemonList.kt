@@ -2,94 +2,62 @@ package lc.wise.myfavouritepokemons
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import lc.wise.myfavouritepokemons.databinding.ActivityPokemonListBinding
 
 class PokemonList : AppCompatActivity() {
     private lateinit var binding: ActivityPokemonListBinding
-    private lateinit var bundle: Bundle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        bundle = Bundle()
-        val eevee = binding.eevee
-        eevee.setOnClickListener {
-            bundle.putString("PokemonName", "Eevee")
-            bundle.putString("PokemonType", "Normal")
-            bundle.putString("PokemonHeight", "0.3")
-            bundle.putString("PokemonWeight", "6.5")
-            showPokemonInfo()
-        }
-        val vaporeon = binding.vaporeon
-        vaporeon.setOnClickListener {
-            bundle.putString("PokemonName", "Vaporeon")
-            bundle.putString("PokemonType", "Water")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "29")
-            showPokemonInfo()
-        }
-        val jolteon = binding.jolteon
-        jolteon.setOnClickListener {
-            bundle.putString("PokemonName", "Jolteon")
-            bundle.putString("PokemonType", "Electric")
-            bundle.putString("PokemonHeight", "0.8")
-            bundle.putString("PokemonWeight", "24.5")
-            showPokemonInfo()
-        }
-        val flareon = binding.flareon
-        flareon.setOnClickListener {
-            bundle.putString("PokemonName", "Flareon")
-            bundle.putString("PokemonType", "Fire")
-            bundle.putString("PokemonHeight", "0.9")
-            bundle.putString("PokemonWeight", "25")
-            showPokemonInfo()
-        }
-        val espeon = binding.espeon
-        espeon.setOnClickListener {
-            bundle.putString("PokemonName", "Espeon")
-            bundle.putString("PokemonType", "Psychic")
-            bundle.putString("PokemonHeight", "0.9")
-            bundle.putString("PokemonWeight", "26.5")
-            showPokemonInfo()
-        }
-        val umbreon = binding.umbreon
-        umbreon.setOnClickListener {
-            bundle.putString("PokemonName", "Umbreon")
-            bundle.putString("PokemonType", "Dark")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "27")
-            showPokemonInfo()
-        }
-        val leafeon = binding.leafeon
-        leafeon.setOnClickListener {
-            bundle.putString("PokemonName", "Leafeon")
-            bundle.putString("PokemonType", "Grass")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "25.5")
-            showPokemonInfo()
-        }
-        val glaceon = binding.glaceon
-        glaceon.setOnClickListener {
-            bundle.putString("PokemonName", "Glaceon")
-            bundle.putString("PokemonType", "Ice")
-            bundle.putString("PokemonHeight", "0.8")
-            bundle.putString("PokemonWeight", "25.9")
-            showPokemonInfo()
-        }
-        val sylveon = binding.sylveon
-        sylveon.setOnClickListener {
-            bundle.putString("PokemonName", "Sylveon")
-            bundle.putString("PokemonType", "Fairy")
-            bundle.putString("PokemonHeight", "1")
-            bundle.putString("PokemonWeight", "23.5")
-            showPokemonInfo()
+        with(binding){
+            setPokemonInfo(eevee, eeveeImage,"Eevee", "Normal",
+                R.color.normal, "0.3", "6.5", R.drawable.eevee)
+            setPokemonInfo(vaporeon, vaporeonImage, "Vaporeon", "Water",
+                R.color.water, "1", "29.0", R.drawable.vaporeon)
+            setPokemonInfo(jolteon, jolteonImage, "Jolteon", "Electric",
+                R.color.electric, "0.8", "24.5", R.drawable.jolteon)
+            setPokemonInfo(flareon, flareonImage, "Flareon", "Fire",
+                R.color.fire, "0.9", "25.0", R.drawable.flareon)
+            setPokemonInfo(espeon, espeonImage, "Espeon", "Psychic",
+                R.color.psychic, "0.9", "26.5", R.drawable.espeon)
+            setPokemonInfo(umbreon, umbreonImage, "Umbreon", "Dark",
+                R.color.dark, "1", "27.0", R.drawable.umbreon)
+            setPokemonInfo(leafeon, leafeonImage, "Leafeon", "Grass",
+                R.color.grass, "1", "25.5", R.drawable.leafeon)
+            setPokemonInfo(glaceon, glaceonImage, "Glaceon", "Ice",
+                R.color.ice, "0.8", "25.9", R.drawable.glaceon)
+            setPokemonInfo(sylveon, sylveonImage, "Sylveon", "Fairy",
+                R.color.fairy, "1", "23.5", R.drawable.sylveon)
         }
     }
-    private fun showPokemonInfo(){
-        val showPokemonInfo = Intent(this, PokemonAbout::class.java)
-        showPokemonInfo.putExtras(bundle)
+
+    private fun setPokemonInfo(textView: TextView, imageView: ImageView, name: String,
+                               type: String, @ColorRes typeColor: Int,
+                               height: String, weight: String, @DrawableRes image: Int){
+        textView.setOnClickListener {
+            showPokemonInfo(name, type, typeColor, height, weight, image)
+        }
+        imageView.setOnClickListener {
+            showPokemonInfo(name, type, typeColor, height, weight, image)
+        }
+    }
+
+    private fun showPokemonInfo(name: String, type: String, @ColorRes typeColor: Int,
+                                height: String, weight: String, @DrawableRes image: Int){
+        val showPokemonInfo = Intent(this, PokemonAbout::class.java).apply {
+            putExtra("PokemonName", name)
+            putExtra("PokemonType", type)
+            putExtra("PokemonTypeColor", typeColor)
+            putExtra("PokemonHeight", height)
+            putExtra("PokemonWeight", weight)
+            putExtra("PokemonImage", image)
+        }
         startActivity(showPokemonInfo)
     }
 }
