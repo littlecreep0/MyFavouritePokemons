@@ -1,9 +1,10 @@
-package lc.wise.myfavouritepokemons
+package lc.wise.myfavouritepokemons.ui
 
 import android.os.Bundle
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import lc.wise.myfavouritepokemons.R
 import lc.wise.myfavouritepokemons.databinding.ActivityPokemonAboutBinding
 
 class PokemonAbout : AppCompatActivity() {

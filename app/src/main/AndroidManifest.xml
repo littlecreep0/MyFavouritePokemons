@@ -14,10 +14,10 @@
         android:theme="@style/Theme.MyFavouritePokemons"
         tools:targetApi="31">
         <activity
-            android:name=".PokemonAbout"
+            android:name=".ui.PokemonAbout"
             android:exported="false" />
         <activity
-            android:name=".PokemonList"
+            android:name=".ui.PokemonList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
