@@ -3,10 +3,11 @@ package lc.wise.myfavouritepokemons.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import lc.wise.myfavouritepokemons.R
 import lc.wise.myfavouritepokemons.databinding.ActivityPokemonListBinding
 import lc.wise.myfavouritepokemons.pokemonRepo.PokemonRepo
-import lc.wise.myfavouritepokemons.recyclerViewSetup.CustomDivider
 import lc.wise.myfavouritepokemons.recyclerViewSetup.PokemonListAdapter
 
 class PokemonList : AppCompatActivity() {
@@ -16,7 +17,9 @@ class PokemonList : AppCompatActivity() {
         binding = ActivityPokemonListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.pokemonList.addItemDecoration(
-            CustomDivider(resources.getDrawable(R.drawable.item_divider)!!)
+            DividerItemDecoration(this, LinearLayoutManager.VERTICAL).apply {
+                setDrawable(resources.getDrawable(R.drawable.item_divider))
+            }
         )
 
         val adapter = PokemonListAdapter()
