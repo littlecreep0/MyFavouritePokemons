@@ -20,11 +20,6 @@ class DiffUtilCallback (
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldPokemon = oldPokemonList[oldItemPosition]
         val newPokemon = newPokemonList[newItemPosition]
-        return oldPokemon.name == newPokemon.name
-                && oldPokemon.type == newPokemon.type
-                && oldPokemon.typeColor == newPokemon.typeColor
-                && oldPokemon.height == newPokemon.height
-                && oldPokemon.weight == newPokemon.weight
-                && oldPokemon.image == newPokemon.image
+        return oldPokemon == newPokemon //checks id twice?
     }
 }

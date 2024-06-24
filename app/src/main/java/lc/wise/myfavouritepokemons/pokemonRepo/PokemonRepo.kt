@@ -85,7 +85,7 @@ object PokemonRepo {
             weight = "23.5",
             image = R.drawable.sylveon
         )
-    ).associateBy { it.id }
+    ).associateBy { it.id } //hold up, is it necessary now?
 
-    fun getPokemonList() = pokemonList
+    fun getPokemonList() = pokemonList.values.toList()
 }
