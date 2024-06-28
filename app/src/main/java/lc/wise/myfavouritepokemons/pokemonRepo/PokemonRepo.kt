@@ -12,8 +12,7 @@ object PokemonRepo {
             height = "0.3",
             weight = "6.5",
             image = R.drawable.eevee
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 2,
             name = "Vaporeon",
             type = "Water",
@@ -21,8 +20,7 @@ object PokemonRepo {
             height = "1",
             weight = "29.0",
             image = R.drawable.vaporeon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 3,
             name = "Jolteon",
             type = "Electric",
@@ -30,8 +28,7 @@ object PokemonRepo {
             height = "0.8",
             weight = "24.5",
             image = R.drawable.jolteon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 4,
             name = "Flareon",
             type = "Fire",
@@ -39,8 +36,7 @@ object PokemonRepo {
             height = "0.9",
             weight = "25.0",
             image = R.drawable.flareon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 5,
             name = "Espeon",
             type = "Psychic",
@@ -48,8 +44,7 @@ object PokemonRepo {
             height = "0.9",
             weight = "26.5",
             image = R.drawable.espeon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 6,
             name = "Umbreon",
             type = "Dark",
@@ -57,8 +52,7 @@ object PokemonRepo {
             height = "1",
             weight = "27.0",
             image = R.drawable.umbreon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 7,
             name = "Leafeon",
             type = "Grass",
@@ -66,8 +60,7 @@ object PokemonRepo {
             height = "1",
             weight = "25.5",
             image = R.drawable.leafeon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 8,
             name = "Glaceon",
             type = "Ice",
@@ -75,8 +68,7 @@ object PokemonRepo {
             height = "0.8",
             weight = "25.9",
             image = R.drawable.glaceon
-        ),
-        Pokemon(
+        ), Pokemon(
             id = 9,
             name = "Sylveon",
             type = "Fairy",

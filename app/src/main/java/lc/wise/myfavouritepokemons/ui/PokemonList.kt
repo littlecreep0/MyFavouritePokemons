@@ -16,11 +16,12 @@ class PokemonList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.pokemonList.addItemDecoration(
-            DividerItemDecoration(this, LinearLayoutManager.VERTICAL).apply {
-                setDrawable(resources.getDrawable(R.drawable.item_divider))
-            }
-        )
+        binding.pokemonList.addItemDecoration(DividerItemDecoration(
+            this,
+            LinearLayoutManager.VERTICAL
+        ).apply {
+            setDrawable(resources.getDrawable(R.drawable.item_divider))
+        })
 
         val adapter = PokemonListAdapter()
         binding.pokemonList.adapter = adapter

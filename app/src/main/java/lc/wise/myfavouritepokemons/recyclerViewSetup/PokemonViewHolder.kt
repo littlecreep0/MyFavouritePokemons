@@ -6,8 +6,8 @@ import lc.wise.myfavouritepokemons.pokemonRepo.Pokemon
 
 class PokemonViewHolder(
     private val binding: ItemPokemonBinding
-): RecyclerView.ViewHolder(binding.root) {
-    fun bind(pokemon: Pokemon, onClick: (Pokemon) -> Unit){
+) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(pokemon: Pokemon, onClick: (Pokemon) -> Unit) {
         with(binding) {
             pokemonImage.setImageResource(pokemon.image)
             pokemonName.text = pokemon.name
