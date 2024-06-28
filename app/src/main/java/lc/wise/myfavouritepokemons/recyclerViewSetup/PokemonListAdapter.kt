@@ -13,7 +13,7 @@ class PokemonListAdapter : Adapter<PokemonViewHolder>() {
     private var pokemonList = emptyList<Pokemon>()
     override fun getItemCount() = pokemonList.size
 
-    fun showPokemonList(newPokemonList: List<Pokemon>){
+    fun showPokemonList(newPokemonList: List<Pokemon>) {
         val diffCallback = DiffUtilCallback(pokemonList, newPokemonList)
         val diffPokemons = DiffUtil.calculateDiff(diffCallback)
         pokemonList = newPokemonList

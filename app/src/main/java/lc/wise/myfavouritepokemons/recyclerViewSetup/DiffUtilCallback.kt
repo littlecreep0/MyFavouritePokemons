@@ -3,10 +3,10 @@ package lc.wise.myfavouritepokemons.recyclerViewSetup
 import androidx.recyclerview.widget.DiffUtil
 import lc.wise.myfavouritepokemons.pokemonRepo.Pokemon
 
-class DiffUtilCallback (
+class DiffUtilCallback(
     private val oldPokemonList: List<Pokemon>,
     private val newPokemonList: List<Pokemon>
-): DiffUtil.Callback() {
+) : DiffUtil.Callback() {
 
     override fun getOldListSize() = oldPokemonList.size
     override fun getNewListSize() = newPokemonList.size
