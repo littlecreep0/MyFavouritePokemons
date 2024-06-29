@@ -16,14 +16,14 @@ class PokemonAbout : AppCompatActivity() {
 
         val name: String = intent.extras?.getString("PokemonName") ?: "MissingNo"
         val type: String = intent.extras?.getString("PokemonType") ?: "???"
-        @ColorRes val typeColor: Int  = intent.extras?.getInt("PokemonTypeColor") ?: R.color.normal
+        @ColorRes val typeColor: Int = intent.extras?.getInt("PokemonTypeColor") ?: R.color.normal
         val height: String = intent.extras?.getString("PokemonHeight") ?: "???"
         val weight: String = intent.extras?.getString("PokemonWeight") ?: "???"
         @DrawableRes val image: Int = intent.extras?.getInt("PokemonImage") ?: R.drawable.missingno
         // im not willing to throw an exception
         // ill throw them another pokemon to catch instead
 
-        with(binding){
+        with(binding) {
             pokemonName.text = "$name"
             pokemonType.text = "Type: $type"
             pokemonType.setTextColor(resources.getColor(typeColor))

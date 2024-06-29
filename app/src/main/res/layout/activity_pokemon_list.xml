@@ -25,11 +25,11 @@
         android:id="@+id/hint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:gravity="center"
         android:text="(Click on the pokemon's name or icon to show its info)"
         android:textAlignment="center"
         android:textSize="15sp"
-        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@id/pokemon_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,14 +37,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokemon_list"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hint"/>
+        app:layout_constraintTop_toBottomOf="@id/hint" />
 
     <!--
     if required to match parent and enable swiping across the entire
